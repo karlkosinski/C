@@ -1,4 +1,4 @@
-
+// Simple calculator / The humble begginings.
 #define _CRT_SECURE_NO_WARNING 
 #include<stdio.h>
 
