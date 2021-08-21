@@ -1,19 +1,21 @@
- #include<stdio.h>
- #include<conio.h>
- #include<stdlib.h>
+// Billing project one of finals 
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
 
  void input();
  void writefile();
  void search();
  void output();
 
- struct date{
+ struct date{														// Date
 	   int month;
 	   int day;
 	   int year;
 	   };
 
-  struct account {
+  struct account { 													// Account structure
 	int number;
 	char name[100];
 	int acct_no;
@@ -33,7 +35,7 @@
 	  char ch;
 	  clrscr();
 
-	  _setcursortype(_NOCURSOR);
+	  _setcursortype(_NOCURSOR);											// Option Menu
 	  printf("   CUSTOMER BILLING SYSTEM:\n\n");
 	  printf("===============================\n");
 	  printf("\n1:    to add account on list\n");
@@ -47,7 +49,7 @@
 	  switch(ch){
 		case '1':
 			clrscr();
-			printf("\nhow many customer accounts?");
+			printf("\nhow many customer accounts?");							// Customer #
 			scanf("%d",&n);
 			for(i=0;i<n;i++){
 				input();
@@ -59,7 +61,7 @@
 				writefile();
 			}
 			main();
-		case '2':
+		case '2':												// Choose search option
 			clrscr();
 			printf("search by what?\n");
 			printf("\n1 --- search by customer number\n");
@@ -72,16 +74,16 @@
 			delay(700);
 			textcolor(RED);
 			gotoxy(25,25);
-			cprintf("\nA PROJECT BY BIDUR & SUJAN");
+			cprintf("\n Project by Karl");
 			delay(1500);
 			exit(1);
 	  }
  }
 
 
-   void input()
+   void input()                                                                                     // Customer Details / Info
 	{
-	  FILE *fp=fopen("bidur.dat","rb");
+	  FILE *fp=fopen("karl.dat","rb");
 	  fseek (fp,0,SEEK_END);
 	  tl=ftell(fp);
 	  sl=sizeof(customer);
@@ -112,7 +114,7 @@
    void writefile()
    {
 	  FILE *fp;
-	  fp=fopen("bidur.dat","ab");
+	  fp=fopen("karl.dat","ab");
 	  fwrite(&customer,sizeof(customer),1,fp);
 	  fclose(fp);
 	  return;
@@ -124,7 +126,7 @@
 	 char nam[100];
 	 int n,i,m=1;
 	 FILE *fp;
-	 fp=fopen("bidur.dat","rb");
+	 fp=fopen("karl.dat","rb");
 	 do{
 		printf("\nenter your choice:");
 		ch=getche();
@@ -136,7 +138,7 @@
 		    sl=sizeof(customer);
 		    ts=tl/sl;
 		    do{
-			printf("\nchoose customer number:");
+			printf("\nchoose customer number:");                                         // Enter customer number
 			scanf("%d",&n);
 			if(n<=0 || n>ts)
 			printf("\nenter correct\n");
@@ -160,7 +162,7 @@
 		    n=customer.number;
 
 		    do{
-			printf("\nenter the name:");
+			printf("\nenter the name:");   								// Search by name
 			scanf("%s",nam);
 			fseek(fp,0,SEEK_SET);
 			for(i=1;i<=n;i++)
@@ -174,7 +176,7 @@
 			     }
 			}
 			if(m!=0)
-			printf("\n\ndoesn't exist\n");
+			printf("\n\ndoesn't exist\n");       							// Wrong info
 			printf("\nanother?(y/n)");
 			ch=getche();
 		    }while(ch=='y');
@@ -185,7 +187,7 @@
 
 
 
-   void output()
+   void output()													// Customer info
 	 {
 	   printf("\n\n    Customer no    :%d\n",customer.number);
 	   printf("    Name 	   :%s\n",customer.name);
