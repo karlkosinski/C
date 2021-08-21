@@ -9,12 +9,12 @@ int main(void) {
 		double f, s, o, A, S, M, D;
 		int Mod;
 
-		printf("\n Enter first number: ");
+		printf("\n Enter first number: ");						// First #
 		scanf_s("%lf", &f);
 		printf("\n");
-		printf("\n Enter second number: ");
+		printf("\n Enter second number: ");  						// Second #
 		scanf_s("%lf", &s);
-		printf("\n List of operations to choose from are: ");
+		printf("\n List of operations to choose from are: "); 				// Choose your operator
 		printf("\n");
 		printf("\n 1- Addition");
 		printf("\n 2- Subtracion");
@@ -27,10 +27,10 @@ int main(void) {
 		scanf_s("%lf", &o);
 		printf("\n");
 
-		A = (f + s);
-		S = (f - s);
-		M = (f * s);
-		D = (f / s);
+		A = (f + s);									// Adding
+		S = (f - s);									// Subtracting
+		M = (f * s);									// Multiplication
+		D = (f / s);									// Division
 		Mod = ((int)f) % ((int)s);
 
 		if (o == 1)
@@ -59,7 +59,7 @@ int main(void) {
 		}
 		else if (o > 6)
 		{
-			printf(" Choose a number between 1-6 ! \n");	
+			printf(" Choose a number between 1-6 ! \n");			// If not a correct number is entered 
 		}
 
 		printf("\n");
